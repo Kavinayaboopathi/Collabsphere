@@ -4,10 +4,11 @@
     left: -260px; /* Hidden by default */
     width: 260px;
     height: 100%;
-    background: rgba(238, 238, 238, 0.05); /* Transparent glass */
+    background: #0b2a43 ; /* Transparent glass */
     border-right: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(18px); /* Blur for glass effect */
     display: flex;
+    color:black;
     flex-direction: column;
     padding-top: 80px;
     box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5); /* Floating shadow */
