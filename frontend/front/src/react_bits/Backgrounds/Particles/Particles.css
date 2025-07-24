@@ -4,6 +4,6 @@
   left: 0;
   width: 100vw;          /* Full viewport width */
   height: 100vh;         /* Full viewport height */
-  background: black;     /* Black background */
+  background: rgb(229, 229, 253);     /* Black background */
   z-index: -1;           /* Stay behind your content */
 }

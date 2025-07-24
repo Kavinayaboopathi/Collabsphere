@@ -4,7 +4,7 @@
     left: -260px; /* Hidden by default */
     width: 260px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05); /* Transparent glass */
+    background: rgba(238, 238, 238, 0.05); /* Transparent glass */
     border-right: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(18px); /* Blur for glass effect */
     display: flex;
@@ -47,7 +47,7 @@
     color: #fff;
     padding: 14px 20px;
     margin: 8px 16px;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(234, 230, 230, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     backdrop-filter: blur(6px);
