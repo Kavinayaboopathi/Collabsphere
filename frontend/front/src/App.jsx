@@ -5,7 +5,8 @@ import Login from "./pages/login";
 import Signin from "./pages/signin";
 import Homepage from "./pages/homepage";
 import Community from "./pages/community";
-import Chat from "./pages/chat"
+import Chat from "./pages/chat";
+import Project from "./pages/project";
 
 
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/community" element={<Community />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/project" element={<Project />} />
       </Routes>
     </BrowserRouter>
   );

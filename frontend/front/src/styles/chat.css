@@ -4,6 +4,7 @@
     height: 100vh;
     background: #f5f7fa;
     font-family: "Poppins", sans-serif;
+    width:100vw;
   }
   
   /* Header */
@@ -42,6 +43,7 @@
     top: 35px;
     right: 0;
     background: white;
+    color:#1E3D58;
     border-radius: 6px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -84,6 +86,9 @@
     background: #41729F;
     color: white;
   }
+  .chat-input{
+    color:#0a1824;
+  }
   
   .chat-bubble.received {
     align-self: flex-start;
@@ -95,7 +100,7 @@
   .chat-input {
     display: flex;
     padding: 10px 15px;
-    background: white;
+    background: rgb(148, 144, 144);
     border-top: 1px solid #ccc;
     gap: 10px;
   }

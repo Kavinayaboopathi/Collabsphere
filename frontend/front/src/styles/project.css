@@ -1,0 +1,259 @@
+/* ===== Page Wrapper ===== */
+.project-page {
+    background: #f4f8fb;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #1E3D58;
+    width:100vw;
+  }
+  
+  /* ===== Header (Toggle + Add Project) ===== */
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .toggle-bar {
+    margin-right: 100px;
+    
+  }
+  
+  .toggle-bar button {
+    background: #A3CEF1;
+    color: #1E3D58;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-left: 60px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  .toggle-bar button.active {
+    background: #41729F;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .toggle-bar button:hover {
+    background: #6096BA;
+    color: white;
+  }
+  
+  .add-btn {
+    background: #274C77;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    margin-right: 40px;
+  }
+  
+  .add-btn:hover {
+    background: #41729F;
+  }
+  
+  /* ===== Filters ===== */
+  .project-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .project-filters select {
+    padding: 8px 12px;
+    border: 1px solid #6096BA;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    color: #1E3D58;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-filters select:hover {
+    border-color: #41729F;
+    box-shadow: 0 0 4px #A3CEF1;
+  }
+  
+  /* ===== Project Cards ===== */
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .project-card {
+    background: white;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 12px;
+    text-align: center;
+    margin-left:400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(65, 114, 159, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(65, 114, 159, 0.25);
+  }
+  
+  .project-card h3 {
+    margin-bottom: 8px;
+    color: #274C77;
+  }
+  
+  .project-card p {
+    color: #41729F;
+    font-size: 14px;
+  }
+  
+  .project-card .meta {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #6096BA;
+  }
+  
+  /* ===== Card Actions (Buttons) ===== */
+  .card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .profile-btn,
+  .details-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 75px;
+    margin-top: 40px;
+    width :175px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .profile-btn {
+    background: #A3CEF1;
+    color: #1E3D58;
+  }
+  
+  .profile-btn:hover {
+    background: #41729F;
+    color: white;
+  }
+  
+  .details-btn {
+    background: #6096BA;
+    color: white;
+  }
+  
+  .details-btn:hover {
+    background: #1E3D58;
+    color: white;
+  }
+  
+  /* ===== Modal (Add Project) ===== */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 61, 88, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .modal {
+    background: #f4f8fb;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(65, 114, 159, 0.4);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .modal h2 {
+    margin-bottom: 10px;
+    color: #274C77;
+  }
+  
+  .modal input,
+  .modal textarea,
+  .modal select ,
+  .modal text{
+    padding: 10px;
+    border: 1px solid #6096BA;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1E3D58;
+    width:375px;
+  }
+  
+  .modal textarea {
+    resize: none;
+    height: 80px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .modal-actions button:first-child {
+    background: #274C77;
+    color: white;
+  }
+  
+  .modal-actions button:first-child:hover {
+    background: #41729F;
+  }
+  
+  .modal-actions button:last-child {
+    background: #A3CEF1;
+    color: #1E3D58;
+  }
+  
+  .modal-actions button:last-child:hover {
+    background: #6096BA;
+    color: white;
+  }
+  
+  /* ===== No Projects Placeholder ===== */
+  .no-projects {
+    text-align: center;
+    color: #6096BA;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  
