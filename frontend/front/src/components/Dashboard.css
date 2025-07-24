@@ -1,0 +1,71 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px; /* Hidden by default */
+    width: 260px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05); /* Transparent glass */
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px); /* Blur for glass effect */
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5); /* Floating shadow */
+    transition: left 0.3s ease;
+    z-index: 100;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+    
+    
+    color: #fff;
+    font-size: 0.5rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    
+  }
+  
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  /* Sidebar Buttons */
+  .sidebar-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 16px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .sidebar-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Icon Styling */
+  .sidebar-btn svg {
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4)); /* Icon glow */
+  }
+  

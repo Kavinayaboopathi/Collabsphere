@@ -1,0 +1,19 @@
+/*
+	Installed from https://reactbits.dev/default/
+*/
+
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+  color:rgb(206, 231, 254)
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
