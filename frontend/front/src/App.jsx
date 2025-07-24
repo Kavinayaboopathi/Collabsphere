@@ -4,6 +4,8 @@ import Getstarted from "./pages/GetStarted";
 import Login from "./pages/login";
 import Signin from "./pages/signin";
 import Homepage from "./pages/homepage";
+import Community from "./pages/community";
+import Chat from "./pages/chat"
 
 
 
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </BrowserRouter>
   );
