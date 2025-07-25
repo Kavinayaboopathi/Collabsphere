@@ -1,0 +1,152 @@
+.tracker-page {
+    padding: 20px;
+    background: #f4f8fb;
+    min-height: 100vh;
+    color: #1E3D58;
+    width:100vw;
+    max-width: 1490px;;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #274C77;
+    margin-bottom: 20px;
+  }
+  
+  .add-task-top-btn {
+    background: #274C77;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-task-top-btn:hover {
+    background: #41729F;
+  }
+  
+  .tracker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .tracker-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(39, 76, 119, 0.2);
+  }
+  
+  .tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .badge {
+    background: #74B3CE;
+    color: #1E3D58;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .task-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+  }
+  
+  .task-table th,
+  .task-table td {
+    border: 1px solid #A3CEF1;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .task-table th {
+    background: #6096BA;
+    color: white;
+  }
+  
+  .task-table tr:nth-child(even) {
+    background: #f1f7fb;
+  }
+  
+  .delete-btn {
+    background: #A3CEF1;
+    border: none;
+    color: #1E3D58;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background: #41729F;
+    color: white;
+  }
+  
+  /* Modal Styling (same as others for consistency) */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 61, 88, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .modal {
+    background: #f4f8fb;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(65, 114, 159, 0.4);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .modal input {
+    padding: 10px;
+    border: 1px solid #6096BA;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1E3D58;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .modal-actions button:first-child {
+    background: #274C77;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+  }
+  
+  .modal-actions button:last-child {
+    background: #A3CEF1;
+    color: #1E3D58;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+  }
+  

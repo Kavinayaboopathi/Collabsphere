@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 //import SplitText from '../react_bits/TextAnimations/SplitText/SplitText'
 import TextType from '../react_bits/TextAnimations/TextType/TextType'
-import DarkVeil from '../react_bits/Backgrounds/DarkVeil/DarkVeil'
+import Particles from '../react_bits/Backgrounds/Particles/Particles'
 import '../styles/Getstarted.css'
 import ShinyText from '../react_bits/TextAnimations/ShinyText/ShinyText'
+import CardSwap, { Card } from '../react_bits/Components/CardSwap/CardSwap'
 
 function Getstarted() {
   const [showAuthButtons, setShowAuthButtons] = useState(false)
@@ -29,9 +30,19 @@ function Getstarted() {
   return (
     <div className="getstarted-container">
       
-      <div className="dark-veil">
-        <DarkVeil />
+      <div className="particles-background">
+        <Particles
+          particleColors={['#ffffff', '#00ffff', '#ff00ff']}
+          particleCount={200}
+          particleSpread={8}
+          speed={0.3}
+          particleBaseSize={80}
+          moveParticlesOnHover={true}
+          alphaParticles={true}
+          disableRotation={false}
+        />
       </div>
+
 
       {/* Centered Animated Text */}
       <div className="center-text">
@@ -66,6 +77,22 @@ function Getstarted() {
           cursorCharacter="|"
         />
       </div>
+      <div className="homepage-cards">
+          <CardSwap cardDistance={60} verticalDistance={70} delay={5000} pauseOnHover={false}>
+            <Card>
+              <h3>Smooth</h3>
+              <p>Seamless animations</p>
+            </Card>
+            <Card>
+              <h3>Reliable</h3>
+              <p>Always performs well</p>
+            </Card>
+            <Card>
+              <h3>Customizable</h3>
+              <p>Easy to tweak</p>
+            </Card>
+          </CardSwap>
+        </div>
     </div>
   )
 }

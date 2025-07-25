@@ -21,7 +21,7 @@ function Dashboard({ isOpen, onClose }) {
       <button className="sidebar-btn" onClick={() => handleNavigation('/community')}>
         <FaUsers /> Community
       </button>
-      <button className="sidebar-btn" onClick={() => handleNavigation('/projects')}>
+      <button className="sidebar-btn" onClick={() => handleNavigation('/project')}>
         <FaProjectDiagram /> Projects
       </button>
       <button className="sidebar-btn" onClick={() => handleNavigation('/discussion')}>
@@ -30,9 +30,7 @@ function Dashboard({ isOpen, onClose }) {
       <button className="sidebar-btn" onClick={() => handleNavigation('/about')}>
         <FaInfoCircle /> About Us
       </button>
-      <button className="sidebar-btn" onClick={() => handleNavigation('/settings')}>
-        <FaCog /> Settings
-      </button>
+      
     </div>
   );
 }

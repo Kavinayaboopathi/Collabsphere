@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/signin.css'
 import googleLogo from '../assets/goo.webp'
-import DarkVeil from '../react_bits/Backgrounds/DarkVeil/DarkVeil'
+import Particles from '../react_bits/Backgrounds/Particles/Particles';
 import SplitText from '../react_bits/TextAnimations/SplitText/SplitText'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios' // ✅ Axios import
@@ -17,9 +17,9 @@ function Signin() {
   const navigate = useNavigate()
 
   const handleGoogleSignup = () => {
-    console.log('Google OAuth Sign-Up triggered')
-    // Add Google Sign-Up logic here (Firebase/OAuth)
-  }
+  window.location.href = 'http://localhost:5000/api/auth/google';
+};
+
 
   const handleSignUp = async (e) => {
     e.preventDefault()
@@ -35,7 +35,8 @@ function Signin() {
         password
       })
 
-      localStorage.setItem('token', response.data.token)
+      sessionStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('userId', response.data._id);
       navigate('/homepage')
     } catch (error) {
       console.error('Signup Error:', error.response?.data || error.message)
@@ -45,8 +46,17 @@ function Signin() {
 
   return (
     <div className="signin-container">
-      <div className="dark-veil">
-        <DarkVeil />
+      <div className="particles-background">
+        <Particles
+          particleColors={['#ffffff', '#00ffff', '#ff00ff']}
+          particleCount={200}
+          particleSpread={8}
+          speed={0.3}
+          particleBaseSize={80}
+          moveParticlesOnHover={true}
+          alphaParticles={true}
+          disableRotation={false}
+        />
       </div>
 
       <div className="signin-box">

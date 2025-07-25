@@ -7,7 +7,11 @@ import Homepage from "./pages/homepage";
 import Community from "./pages/community";
 import Chat from "./pages/chat";
 import Project from "./pages/project";
-
+import OAuthSuccess from './pages/OAuthSuccess';
+import MyTracker from "./pages/MyTracker";
+import ProjectTracker from "./pages/ProjectTracker"
+import Discussion from "./pages/discussion"
+import AboutUs from "./pages/about"
 
 
 export default function App() {
@@ -21,6 +25,11 @@ export default function App() {
         <Route path="/community" element={<Community />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/project" element={<Project />} />
+        <Route path="/oauth-success" element={<OAuthSuccess />} />
+        <Route path="/myTracker" element={<MyTracker />} />
+        <Route path="/projectTracker" element={<ProjectTracker />} />
+        <Route path="/discussion" element={<Discussion />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   );

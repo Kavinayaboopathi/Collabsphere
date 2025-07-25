@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/chat.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Chat() {
+    const navigate = useNavigate();
+
   const { id } = useParams(); // Project/Community ID
   const [messages, setMessages] = useState([
     { sender: "me", text: "Hey team, any updates?" },
@@ -26,8 +29,12 @@ export default function Chat() {
         <div className="track-dropdown">
           <button className="track-btn">Track ▼</button>
           <div className="track-menu">
-            <p onClick={() => (window.location.href = "/your-track")}>Your Track</p>
-            <p onClick={() => (window.location.href = "/project-track")}>Project Track</p>
+          <p onClick={() => navigate("/MyTracker")} style={{ cursor: "pointer" }}>
+        Your Track
+      </p>
+      <p onClick={() => navigate("/ProjectTracker")} style={{ cursor: "pointer" }}>
+        Project Track
+      </p>
           </div>
         </div>
       </div>

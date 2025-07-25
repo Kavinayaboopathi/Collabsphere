@@ -8,11 +8,11 @@
     height: 100vh;
     overflow: hidden;
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: #000000;
   }
   
   /* Make DarkVeil cover full screen */
-  .dark-veil {
+  /* .dark-veil {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,21 +20,21 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
-  }
+  } */
   
   /* Glassmorphic Login Box */
   .login-box {
     position: relative;
     z-index: 5;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.879);
+    border: 1px solid rgba(255, 255, 255, 0.938);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 40px;
     width: 500px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(23, 22, 22, 0.3);
     animation: floatBox 4s ease-in-out infinite;
   }
   
@@ -51,21 +51,21 @@
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
     padding: 10px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.058);
     animation: glow 2.5s ease-in-out infinite alternate;
   }
   
   /* Pulsing glow animation */
   @keyframes glow {
     from { box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
-    to { box-shadow: 0 0 40px rgba(255, 255, 255, 0.4); }
+    to { box-shadow: 0 0 40px rgba(84, 79, 79, 0.4); }
   }
   
   /* Typography */
   h2 {
     margin: 10px 0 25px;
     font-weight: bold;
-    color: #fff;
+    color: #0e0e0e;
   }
   
   /* Form fields */
@@ -75,17 +75,17 @@
     text-align: left;
   }
   
-  label {
+  label{
     margin: 10px 0 5px;
     font-size: 0.9rem;
-    color: #ddd;
+    color: #0b0101;
     display: flex;
     justify-content: space-between;
   }
   
   .forgot-link {
     font-size: 0.8rem;
-    color: #ffb6e6;
+    color: #3a04ae;
     text-decoration: none;
   }
   
@@ -203,4 +203,12 @@
     /
   }
   
- 
+    .particles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vw;
+    z-index: 0;
+  }

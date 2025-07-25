@@ -1,76 +1,70 @@
 .getstarted-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    overflow: hidden;
-  }
-  
-  /* Make DarkVeil full screen */
-  .getstarted-container .dark-veil {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 5; 
-    pointer-events: none;
-  }
-  
-  /* Center SplitText */
-  .center-text {
-    position: absolute;
-    top: 50%; /* Slightly above center */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    color: white;
-    font-size: 4rem;
-    text-align: center;
-    width:800px;
-    
-   
-  }
-  
-  /* Position typing text below */
-  .typing-text {
-    position: absolute;
-    top: 40%; /* Below the SplitText */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    color: #d2c6c6;
-    font-size: 1.5rem;
-    text-align: center;
-   
-  }
-  .button-group {
-    margin-top: 20px;
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-  }
-  
-  .btn {
-    margin-top: 30%;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);  /* Transparent white */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    backdrop-filter: blur(12px);           /* Glass blur */
-    -webkit-backdrop-filter: blur(12px);   /* Safari support */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Hover effect */
-  .btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 40px rgba(255, 255, 255, 0.2);
-  }
-  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+.getstarted-container .dark-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5; 
+  pointer-events: none;
+}
+
+/* 📍 LEFT aligned text block */
+.center-text {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  z-index: 10;
+  color: white;
+  font-size: 4rem;
+  text-align: left;
+  max-width: 800px;
+}
+
+.typing-text {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  z-index: 10;
+  color: #d2c6c6;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.button-group {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start; /* ✅ Align buttons to the left */
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: position CardSwap if needed */

@@ -3,7 +3,7 @@ import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import googleLogo from '../assets/goo.webp';
-import DarkVeil from '../react_bits/Backgrounds/DarkVeil/DarkVeil';
+import Particles from '../react_bits/Backgrounds/Particles/Particles';
 import SplitText from '../react_bits/TextAnimations/SplitText/SplitText';
 import pro from '../assets/pro.png';
 
@@ -14,9 +14,9 @@ function Login() {
   const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
-    console.log('Google OAuth triggered');
-    // Implement Google login (e.g., Firebase auth)
-  };
+  window.location.href = 'http://localhost:5000/api/auth/google';
+};
+
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -26,7 +26,9 @@ function Login() {
         password,
       });
 
-      localStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('userId', response.data._id); 
+
       navigate('/homepage');
     } catch (error) {
       if (error.response) {
@@ -40,10 +42,18 @@ function Login() {
 
   return (
     <div className="login-container">
-      <div className="dark-veil">
-        <DarkVeil />
+      <div className="particles-background">
+        <Particles
+          particleColors={['#ffffff', '#00ffff', '#ff00ff']}
+          particleCount={200}
+          particleSpread={8}
+          speed={0.3}
+          particleBaseSize={80}
+          moveParticlesOnHover={true}
+          alphaParticles={true}
+          disableRotation={false}
+        />
       </div>
-
       <div className="login-box">
         {/* Avatar */}
         <img src={pro} alt="avatar" className="avatar" />

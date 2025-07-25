@@ -29,6 +29,7 @@
     gap: 8px;
     flex: 1;
     max-width: 280px;
+    margin-left: 60px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
@@ -90,7 +91,7 @@
     gap: 15px;
   }
   .search-bar{
-    margin-left:40px;
+    margin-left: 60px;
   }
   
   .community-item {

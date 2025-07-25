@@ -1,13 +1,69 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import "../styles/project.css";
 import Dashboard from "../components/Dashboard";
+import axios from "axios";
 
 export default function Project() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   const [selectedProjectStudents, setSelectedProjectStudents] = useState([]);
   const [showStudentModal, setShowStudentModal] = useState(false);
+
+  const [projects, setProjects] = useState([]);
+  const [showMyProjects, setShowMyProjects] = useState(false);
+  const [filters, setFilters] = useState({ domain: "", dept: "" });
+  const [showModal, setShowModal] = useState(false);
+
+  const [newProject, setNewProject] = useState({
+    title: "",
+    description: "",
+    domain: "",
+    dept: "",
+  });
+
+  const userId = sessionStorage.getItem("userId");
+
+  useEffect(() => {
+    if (!userId) return;
+
+    axios
+      .get(`http://localhost:5000/api/projects/${userId}`)
+      .then((res) => {
+        setProjects(res.data.projects);
+      })
+      .catch((err) => {
+        console.error("Error fetching projects:", err);
+      });
+  }, [userId]);
+
+  const handleAddProject = () => {
+    if (!newProject.title || !newProject.description) return;
+
+    const payload = {
+      ...newProject,
+      ownerId: userId,
+    };
+
+    axios
+      .post("http://localhost:5000/api/projects", payload)
+      .then((res) => {
+        setProjects([res.data.project, ...projects]);
+        setNewProject({ title: "", description: "", domain: "", dept: "" });
+        setShowModal(false);
+      })
+      .catch((err) => {
+        console.error("Error adding project:", err);
+      });
+  };
+
+  const filteredProjects = projects.filter(
+    (p) =>
+      (!filters.domain || p.domain === filters.domain) &&
+      (!filters.dept || p.dept === filters.dept) &&
+      (showMyProjects ? p.ownerId === userId : p.ownerId !== userId)
+  );
 
   const students = [
     { id: 1, name: "Alice", dept: "CSE", year: 3, skills: "React, NLP", project: "AI Chatbot" },
@@ -20,50 +76,6 @@ export default function Project() {
     setSelectedProjectStudents(related);
     setShowStudentModal(true);
   };
-
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      title: "AI Chatbot",
-      description: "An AI-powered chatbot built using NLP for customer support.",
-      domain: "AI",
-      dept: "CSE",
-      owner: "You",
-    },
-    {
-      id: 2,
-      title: "IoT Smart Home",
-      description: "IoT-based automation for home lighting and temperature control.",
-      domain: "IoT",
-      dept: "ECE",
-      owner: "Bob Smith",
-    },
-  ]);
-
-  const [showMyProjects, setShowMyProjects] = useState(false);
-  const [filters, setFilters] = useState({ domain: "", dept: "" });
-  const [showModal, setShowModal] = useState(false);
-  const [newProject, setNewProject] = useState({
-    title: "",
-    description: "",
-    domain: "",
-    dept: "",
-  });
-
-  const handleAddProject = () => {
-    if (!newProject.title || !newProject.description) return;
-    const newEntry = { ...newProject, id: projects.length + 1, owner: "You" };
-    setProjects([newEntry, ...projects]);
-    setNewProject({ title: "", description: "", domain: "", dept: "" });
-    setShowModal(false);
-  };
-
-  const filteredProjects = projects.filter(
-    (p) =>
-      (!filters.domain || p.domain === filters.domain) &&
-      (!filters.dept || p.dept === filters.dept) &&
-      (showMyProjects ? p.owner === "You" : true)
-  );
 
   return (
     <div className="project-page">
@@ -113,7 +125,7 @@ export default function Project() {
       <div className="project-list">
         {filteredProjects.length > 0 ? (
           filteredProjects.map((p) => (
-            <div key={p.id} className="project-card">
+            <div key={p._id} className="project-card">
               <h3>{p.title}</h3>
               <p>{p.description.slice(0, 100)}...</p>
               <p className="meta">

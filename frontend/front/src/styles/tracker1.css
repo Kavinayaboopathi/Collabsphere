@@ -1,0 +1,177 @@
+/* Container styling */
+.tracker-page {
+    padding: 20px;
+    background: #f4f8fb;
+    min-height: 100vh;
+    color: #1E3D58;
+    width:100vw;
+    max-width: 1490px;;
+  }
+  
+  /* Heading */
+  .tracker-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #274C77;
+  }
+  
+  /* Add Task button */
+  .add-task-btn {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 18px;
+    background: #274C77;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-task-btn:hover {
+    background: #41729F;
+  }
+  
+  /* Task List container (vertical layout) */
+  .task-list.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Each Task Card */
+  .task-card {
+    background: #ffffff;
+    border: 1px solid #A3CEF1;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease;
+    width:800px;
+    margin-left:375px;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Card Headings */
+  .task-card h4 {
+    margin: 0;
+    color: #274C77;
+    font-size: 18px;
+  }
+  
+  /* Task Info */
+  .task-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Status Dropdown */
+  .task-card select {
+    padding: 5px;
+    border: 1px solid #6096BA;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #f4f8fb;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #ff6666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background: #e63d3d;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(30, 61, 88, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Box */
+  .modal {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(65, 114, 159, 0.4);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Modal Input Fields */
+  .modal input {
+    padding: 10px;
+    border: 1px solid #6096BA;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    color: #1E3D58;
+    width: 100%;
+  }
+  
+  /* Modal Actions */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .modal-actions button:first-child {
+    background: #274C77;
+    color: white;
+  }
+  
+  .modal-actions button:first-child:hover {
+    background: #41729F;
+  }
+  
+  .modal-actions button:last-child {
+    background: #A3CEF1;
+    color: #1E3D58;
+  }
+  
+  .modal-actions button:last-child:hover {
+    background: #6096BA;
+    color: white;
+  }
+  
