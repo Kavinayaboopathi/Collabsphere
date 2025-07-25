@@ -349,4 +349,8 @@ html, body {
 /* --- ENFORCE BG EDGE TO EDGE EVEN IF ZOOMED OUT --- */
 body,
 .homepage { background: #cee8f3 !important; }
+<<<<<<< HEAD
 * { box-sizing: border-box; }
+=======
+* { box-sizing: border-box; }
+>>>>>>> be677e6e3818bf83522630263b726aa6c83f5227
