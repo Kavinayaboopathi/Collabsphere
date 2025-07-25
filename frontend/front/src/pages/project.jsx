@@ -6,10 +6,8 @@ import axios from "axios";
 
 export default function Project() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-
-  const [selectedProjectStudents, setSelectedProjectStudents] = useState([]);
   const [showStudentModal, setShowStudentModal] = useState(false);
+  const [selectedProjectStudents, setSelectedProjectStudents] = useState([]);
 
   const [projects, setProjects] = useState([]);
   const [showMyProjects, setShowMyProjects] = useState(false);
@@ -27,27 +25,24 @@ export default function Project() {
 
   useEffect(() => {
     if (!userId) return;
+    const type = showMyProjects ? "mine" : "others";
 
     axios
-      .get(`http://localhost:5000/api/projects/${userId}`)
+      .get(`http://localhost:5000/api/projects/${userId}?type=${type}`)
       .then((res) => {
         setProjects(res.data.projects);
       })
       .catch((err) => {
         console.error("Error fetching projects:", err);
       });
-  }, [userId]);
+  }, [userId, showMyProjects]);
 
   const handleAddProject = () => {
     if (!newProject.title || !newProject.description) return;
-
-    const payload = {
-      ...newProject,
-      ownerId: userId,
-    };
+    const payload = { ...newProject, ownerId: userId };
 
     axios
-      .post("http://localhost:5000/api/projects", payload)
+      .post("http://localhost:5000/api/projects/add", payload)
       .then((res) => {
         setProjects([res.data.project, ...projects]);
         setNewProject({ title: "", description: "", domain: "", dept: "" });
@@ -61,8 +56,7 @@ export default function Project() {
   const filteredProjects = projects.filter(
     (p) =>
       (!filters.domain || p.domain === filters.domain) &&
-      (!filters.dept || p.dept === filters.dept) &&
-      (showMyProjects ? p.ownerId === userId : p.ownerId !== userId)
+      (!filters.dept || p.dept === filters.dept)
   );
 
   const students = [
@@ -81,11 +75,11 @@ export default function Project() {
     <div className="project-page">
       {/* Sidebar */}
       <Dashboard isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <button className="dashboard-icon" onClick={toggleSidebar}>
+      <button className="dashboard-icon" onClick={() => setSidebarOpen(!sidebarOpen)}>
         <FaBars />
       </button>
 
-      {/* Header with Toggle and Add Project */}
+      {/* Header */}
       <div className="project-header">
         <div className="toggle-bar">
           <button
@@ -108,13 +102,20 @@ export default function Project() {
 
       {/* Filters */}
       <div className="project-filters">
-        <select onChange={(e) => setFilters({ ...filters, domain: e.target.value })}>
+        <select
+          onChange={(e) => setFilters({ ...filters, domain: e.target.value })}
+          value={filters.domain}
+        >
           <option value="">Filter by Domain</option>
           <option value="AI">AI</option>
           <option value="IoT">IoT</option>
           <option value="Web">Web</option>
         </select>
-        <select onChange={(e) => setFilters({ ...filters, dept: e.target.value })}>
+
+        <select
+          onChange={(e) => setFilters({ ...filters, dept: e.target.value })}
+          value={filters.dept}
+        >
           <option value="">Filter by Department</option>
           <option value="CSE">CSE</option>
           <option value="ECE">ECE</option>
@@ -127,7 +128,7 @@ export default function Project() {
           filteredProjects.map((p) => (
             <div key={p._id} className="project-card">
               <h3>{p.title}</h3>
-              <p>{p.description.slice(0, 100)}...</p>
+              <p>{p.description.length > 100 ? `${p.description.slice(0, 100)}...` : p.description}</p>
               <p className="meta">
                 <strong>Domain:</strong> {p.domain} | <strong>Dept:</strong> {p.dept}
               </p>
