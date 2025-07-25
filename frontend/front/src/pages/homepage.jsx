@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { FaBell, FaPlus, FaBars, FaSignOutAlt, FaSearch } from "react-icons/fa";
-import Dashboard from "../components/Dashboard";
 import "../styles/homepage.css";
 
 export default function HomePage() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [filters, setFilters] = useState({
     department: "",
@@ -21,8 +18,6 @@ export default function HomePage() {
   ]);
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [selected, setSelected] = useState([]);
-
-  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   const toggleSelect = (id) => {
     setSelected((prev) =>
@@ -54,31 +49,11 @@ export default function HomePage() {
 
   return (
     <div className="homepage">
-      {/* Sidebar */}
-      <Dashboard isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-
       {/* Main Content Area */}
-      <div className={`homepage-main${sidebarOpen ? " sidebar-open" : ""}`}>
-        {/* Top Row */}
-        <div className="top-controls">
-          <button className="dashboard-icon" onClick={toggleSidebar}>
-            <FaBars />
-          </button>
-          <button className="icon-btn">
-            <FaBell />
-          </button>
-          <button className="create-btn">
-            <FaPlus /> Create Community
-          </button>
-          <button className="logout-btn">
-            <FaSignOutAlt /> Logout
-          </button>
-        </div>
-
+      <div className="homepage-main">
         {/* Search and Filters */}
         <div className="search-section">
           <div className="search-box">
-            <FaSearch />
             <input
               type="text"
               placeholder="Search students or projects..."
