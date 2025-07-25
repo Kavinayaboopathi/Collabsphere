@@ -5,7 +5,7 @@
 .text-type {
   display: inline-block;
   white-space: pre-wrap;
-  color:rgb(206, 231, 254)
+  color:black
 }
 
 .text-type__cursor {
