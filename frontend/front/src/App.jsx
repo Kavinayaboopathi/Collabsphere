@@ -12,11 +12,14 @@ import MyTracker from "./pages/MyTracker";
 import ProjectTracker from "./pages/ProjectTracker"
 import Discussion from "./pages/discussion"
 import AboutUs from "./pages/about"
-
+import Profile from "./pages/Profile";
+import TopNavBar from "./components/TopNavBar";
 
 export default function App() {
   return (
     <BrowserRouter>
+    
+        <TopNavBar />
       <Routes>
         <Route path="/" element={<Getstarted />} />
         <Route path="/login" element={<Login />} />
@@ -30,6 +33,7 @@ export default function App() {
         <Route path="/projectTracker" element={<ProjectTracker />} />
         <Route path="/discussion" element={<Discussion />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -12,7 +12,7 @@
   }
   
   /* Make DarkVeil cover full screen */
-  /* .dark-veil {
+  .dark-veil {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,21 +20,21 @@
     width: 100vw;
     height: 100vh;
     z-index: 0;
-  } */
+  }
   
   /* Glassmorphic Login Box */
   .login-box {
     position: relative;
     z-index: 5;
-    background: rgba(255, 255, 255, 0.879);
-    border: 1px solid rgba(255, 255, 255, 0.938);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 40px;
     width: 500px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(23, 22, 22, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     animation: floatBox 4s ease-in-out infinite;
   }
   
@@ -51,7 +51,7 @@
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
     padding: 10px;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.058);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
     animation: glow 2.5s ease-in-out infinite alternate;
   }
   
@@ -65,7 +65,7 @@
   h2 {
     margin: 10px 0 25px;
     font-weight: bold;
-    color: #0e0e0e;
+    color: #fff;
   }
   
   /* Form fields */

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../styles/signin.css'
+import '../styles/login.css'
 import googleLogo from '../assets/goo.webp'
 import Particles from '../react_bits/Backgrounds/Particles/Particles';
 import SplitText from '../react_bits/TextAnimations/SplitText/SplitText'

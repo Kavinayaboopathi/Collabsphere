@@ -1,43 +1,51 @@
-const Project = require('../models/projectModel');
+// controllers/projectController.js
+const Project = require("../models/projectModel");
 
-// Create Project
 exports.createProject = async (req, res) => {
   try {
     const newProject = new Project(req.body);
-    const savedProject = await newProject.save();
-    res.status(201).json(savedProject);
+    const saved = await newProject.save();
+    res.status(201).json(saved);
   } catch (err) {
-    res.status(400).json({ message: "Error creating project", error: err.message });
+    console.error("Error creating project:", err);
+    res.status(500).json({ error: "Failed to create project" });
   }
 };
 
-// Get All Projects
 exports.getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.find().sort({ createdAt: -1 });
-    res.status(200).json({ projects });
+    const filters = req.query;
+    const query = {};
+    if (filters.domain) query.domain = filters.domain;
+    if (filters.dept) query.dept = filters.dept;
+    if (filters.owner) query.owner = filters.owner;
+
+    const projects = await Project.find(query).sort({ createdAt: -1 });
+    res.status(200).json(projects);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching projects", error: err.message });
+    console.error("Error fetching projects:", err);
+    res.status(500).json({ error: "Failed to fetch projects" });
   }
 };
 
-// Get Projects for a Specific User
 exports.getProjectsByUser = async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const { type } = req.query; // "mine" or "others"
+  const { userId } = req.params;
+  const { type } = req.query;
 
-    let query = {};
+  try {
+    let projects;
 
     if (type === "mine") {
-      query.ownerId = userId;
+      projects = await Project.find({ ownerId: userId });
     } else if (type === "others") {
-      query.ownerId = { $ne: userId };
+      projects = await Project.find({ ownerId: { $ne: userId } });
+    } else {
+      return res.status(400).json({ error: "Invalid type parameter" });
     }
 
-    const projects = await Project.find(query).sort({ createdAt: -1 });
     res.status(200).json({ projects });
   } catch (err) {
-    res.status(500).json({ message: "Error fetching user projects", error: err.message });
+    console.error("Error fetching user projects:", err);
+    res.status(500).json({ error: "Failed to fetch projects" });
   }
 };

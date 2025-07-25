@@ -1,12 +1,46 @@
-
-
-
-.homepage{
-  width:100vw;
-  background-color: #cee8f3;
-  
-
+/* --- BACKGROUND --- */
+html, body {
+  background: #cee8f3 !important;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
+
+.homepage {
+  min-height: 100vh;
+  width: 100vw;
+  background: #cee8f3;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --- SIDEBAR SUPPORT --- */
+.homepage-main {
+  transition: margin-left 0.3s;
+  margin-left: 0;
+}
+.sidebar-open {
+  margin-left: 250px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 2000;
+  background: #274C77;
+  transition: left 0.3s;
+}
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+
+/* --- TOP CONTROLS (NAV BAR) --- */
 .top-controls {
   display: flex;
   align-items: center;
@@ -14,9 +48,14 @@
   padding: 15px 20px;
   background: #f4f4f4;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
-
-
+.dashboard-icon { font-size: 20px; padding: 10px 12px; }
+.icon-btn { margin-left: auto; }
+.dashboard-icon,
 .icon-btn,
 .create-btn,
 .logout-btn {
@@ -25,88 +64,29 @@
   border: none;
   padding: 8px 14px;
   border-radius: 6px;
-  position :relative;
-  left:1100px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 14px;
+  transition: background 0.3s;
 }
-.dashboard-icon{
-  background: #274C77;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-
-}
-
 .dashboard-icon:hover,
 .icon-btn:hover,
 .create-btn:hover,
-.logout-btn:hover {
-  background: #41729F;
-}
+.logout-btn:hover { background: #41729F; }
 
-/* Filters */
-.filters {
-  display: flex;
-  gap: 10px;
-  padding: 15px 20px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  flex-wrap: wrap;
-}
-
-.filters select {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-
-
-
-
-.dashboard-icon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-  background: #274C77;
-  color: white;
-  border: none;
-  padding: 10px 12px;
-  font-size: 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dashboard-icon:hover {
-  background: #41729F;
-}
-/*search/*
-
-/* Search Section Container */
+/* --- SEARCH & FILTERS --- */
 .search-section {
-
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px;
   background: #f9f9f9;
   border-bottom: 1px solid #ddd;
- 
+  width: 100%;
+  box-sizing: border-box;
 }
-
-/* Search Box (with icon inside) */
 .search-box {
   display: flex;
   align-items: center;
@@ -116,27 +96,27 @@
   padding: 8px 12px;
   gap: 10px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin: 0 auto;
 }
-
 .search-box input {
   flex: 1;
   border: none;
   outline: none;
   font-size: 15px;
+  background: transparent;
 }
-
-/* Filters Row */
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
-
 .filters select {
-  flex: 1 1 150px; /* Flexible but min width */
+  flex: 1 1 150px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -144,13 +124,10 @@
   background: #fff;
   cursor: pointer;
   transition: border 0.3s ease;
+  min-width: 120px;
+  max-width: 180px;
 }
-
-.filters select:hover {
-  border-color: #41729F;
-}
-
-/* Search Button */
+.filters select:hover { border-color: #41729F; }
 .search-btn {
   background: #274C77;
   color: white;
@@ -161,251 +138,215 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
+.search-btn:hover { background: #41729F; }
 
-.search-btn:hover {
-  background: #41729F;
-}
-
-/* Student List Layout */
+/* --- STUDENT LISTING --- */
 .student-list {
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
 }
 
-/* Grid layout for cards (3 per row on desktop) */
+/* --- VERTICAL GRID DEFAULT --- */
 .student-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* bigger cards */
+  gap: 32px; /* bigger gap */
+  margin: 20px 0 0 0;
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Individual Card */
-
-.student-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Student Profile Image */
-.student-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 12px;
-  border: 2px solid #74B3CE;
-}
-
-/* Checkbox */
-.select-box {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Send Request Button */
-.send-btn {
-  display: block;
-  margin: 10px 0;
-  background: #274C77;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.send-btn:hover {
-  background: #41729F;
-}
-
-/* Card Grid (Default) */
-.student-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Individual Cards */
+/* --- INDIVIDUAL STUDENT CARD --- */
 .student-card {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  text-align: left;
+  padding: 28px 32px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width:500px;
-  transition: transform 0.2s ease-in-out;
+  min-width: 340px;
+  max-width: 540px; /* bigger card */
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
-
 .student-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-7px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.17);
 }
 
+/* Align image on left, details center, align info on right side */
 .student-image {
-  width: 100px;
-  height: 100px;
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 12px;
-  border: 2px solid #3c1053;
+  margin-right: 30px;
+  border: 3px solid #3c1053;
+  box-shadow: 0 2px 8px #eee;
 }
-
-/* Table View (Filtered Search Results) */
-
-/* Individual Cards */
-.student-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 15px;
+.student-details {
+  flex: 1;
   display: flex;
-  width:200px;
   flex-direction: column;
-  align-items: center;
-  transition: transform 0.2s ease-in-out;
+  justify-content: center;
+}
+.student-card h4 {
+  margin: 0 0 12px;
+  font-size: 26px;
+  color: #3c1053;
+  font-weight: 700;
+}
+.student-card p {
+  margin: 5px 0;
+  font-size: 17px;
+  color: #555;
+}
+/* New align info on the right side in card */
+.student-align-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 120px;
+  margin-left: 30px;
+}
+.student-align-side .card-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  margin-bottom: 7px;
+}
+.student-align-side .card-value {
+  font-size: 18px;
+  color: #3c1053;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
-.student-card:hover {
-  transform: translateY(-5px);
-}
-
-.student-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 12px;
-  border: 2px solid #3c1053;
-}
-
-/* Table View (Filtered Search Results) */
-
-/* === Horizontal Cards (Filtered Search View) === */
-/* === Horizontal Cards as Vertical List (Filtered View) === */
+/* --- HORIZONTAL CARDS FOR FILTERED --- */
 .student-horizontal-cards {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
-
 .student-h-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #fff;
   border-radius: 10px;
-  padding: 15px 20px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 20px 28px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, background 0.2s;
 }
-
 .student-h-card:hover {
   transform: translateY(-3px);
   background: #fafafa;
 }
-
-/* Profile image on the left */
 .student-avatar {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #3c1053;
-  margin-right: 15px;
+  margin-right: 18px;
 }
-
-/* Student Info in the middle */
 .student-info {
   flex: 1;
-  font-size: 14px;
+  font-size: 16px;
+  text-align: left;
 }
-
 .student-info h4 {
   margin: 0 0 5px;
-  font-size: 16px;
+  font-size: 20px;
   color: #3c1053;
 }
-
-/* Checkbox stays to the far right */
 .student-h-card input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-}
-/* === Student Grid (Default View) === */
-.student-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  margin-left: 18px;
 }
 
-/* === Individual Student Card === */
-/* Student List - Vertical Feed Style */
-.student-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-/* Each Student Card (Horizontal) */
-.student-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  width:750px;
-  margin-left: 300px;
-  border-radius: 12px;
-  padding: 15px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.student-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Profile Picture on the Left */
-.student-image {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 15px;
-  border: 2px solid #3c1053;
-}
-
-/* Student Info (Middle Section) */
-.student-card h4 {
-  margin: 0 0 5px;
-  font-size: 18px;
-  color: #3c1053;
-}
-
-.student-card p {
-  margin: 3px 0;
-  font-size: 14px;
-  color: #555;
-}
-
-/* Details Section takes full width except image & checkbox */
-.student-card > div {
-  flex: 1;
-}
-
-/* Checkbox on the Right */
-.student-card input[type="checkbox"] {
-  margin-left: 20px;
-  width: 18px;
-  height: 18px;
+/* --- SEND BUTTON --- */
+.send-btn {
+  display: block;
+  margin: 10px 0 18px 0;
+  background: #274C77;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
   cursor: pointer;
-  accent-color: #3c1053; /* For modern browsers */
+  font-size: 17px;
+  font-weight: 600;
+  transition: background 0.3s;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
+.send-btn:hover { background: #41729F; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+  .student-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .student-horizontal-cards {
+    max-width: 100%;
+  }
+  .student-card {
+    padding: 20px 12px;
+    min-width: 220px;
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .search-box, .student-horizontal-cards, .student-list {
+    max-width: 100vw;
+    padding: 0 5vw;
+  }
+  .student-card {
+    min-width: 180px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .student-image {
+    margin: 0 0 18px 0;
+  }
+  .student-align-side {
+    margin-left: 0;
+    align-items: flex-start;
+    min-width: 80px;
+  }
+}
+@media (max-width: 600px) {
+  .top-controls, .filters, .search-section, .student-list {
+    padding: 10px;
+    gap: 10px;
+  }
+  .student-card, .student-h-card {
+    padding: 10px;
+    min-width: 140px;
+  }
+  .search-box {
+    max-width: 100vw;
+    padding: 8px;
+  }
+}
+
+/* --- ENFORCE BG EDGE TO EDGE EVEN IF ZOOMED OUT --- */
+body,
+.homepage { background: #cee8f3 !important; }
+* { box-sizing: border-box; }

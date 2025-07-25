@@ -22,6 +22,7 @@ export default function Project() {
   });
 
   const userId = sessionStorage.getItem("userId");
+  const userName = sessionStorage.getItem("userName"); // optional for display
 
   useEffect(() => {
     if (!userId) return;
@@ -39,12 +40,16 @@ export default function Project() {
 
   const handleAddProject = () => {
     if (!newProject.title || !newProject.description) return;
-    const payload = { ...newProject, ownerId: userId };
+    const payload = {
+      ...newProject,
+      ownerId: userId,
+      ownerName: userName || "Anonymous",
+    };
 
     axios
-      .post("http://localhost:5000/api/projects/add", payload)
+      .post("http://localhost:5000/api/projects", payload)
       .then((res) => {
-        setProjects([res.data.project, ...projects]);
+        setProjects([res.data, ...projects]); // use res.data directly
         setNewProject({ title: "", description: "", domain: "", dept: "" });
         setShowModal(false);
       })
@@ -74,11 +79,7 @@ export default function Project() {
   return (
     <div className="project-page">
       {/* Sidebar */}
-      <Dashboard isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <button className="dashboard-icon" onClick={() => setSidebarOpen(!sidebarOpen)}>
-        <FaBars />
-      </button>
-
+      
       {/* Header */}
       <div className="project-header">
         <div className="toggle-bar">
